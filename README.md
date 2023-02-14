@@ -10,3 +10,5 @@ or maybe here
 ooh, code
 ```
 We did it!!
+
+closes issue 4
