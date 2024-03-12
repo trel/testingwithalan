@@ -9,31 +9,27 @@ jobs:
       matrix:
         container: ['ubuntu:20.04']
     steps:
-      - name: show workspace
-        run: |
-             echo "[$GITHUB_WORKSPACE]"
-             ls -l $GITHUB_WORKSPACE
-      - name: get git
+      - name: get git good
         run: |
              apt-get update
              apt-get install -y git
-             which git
-             git config --global --add safe.directory /__w/testingwithalan/testingwithalan
+             git config --global --add safe.directory ${{ github.workspace }}
       - name: Checkout Repository
         uses: actions/checkout@v4
-      - name: short sha via cut9
-        run: echo "SHORT_SHA=`echo ${{ github.sha }} | cut -c1-9`" >> $GITHUB_ENV
-      - name: Show cut9 sha
-        run:  echo ${{ env.SHORT_SHA }}
-      - name: rev-parse 1
-        id: revparse1
-        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
-      - name: Show revparse1
-        run:  echo ${{ steps.revparse1.outputs.sha_short }} 
+#      - name: short sha via cut9
+#        run: echo "SHORT_SHA=`echo ${{ github.sha }} | cut -c1-9`" >> $GITHUB_ENV
+#      - name: Show cut9 sha
+#        run:  echo ${{ env.SHORT_SHA }}
+#      - name: rev-parse 1
+#        id: revparse1
+#        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+#      - name: Show revparse1
+#        run:  echo ${{ steps.revparse1.outputs.sha_short }} 
       - name: rev-parse 2
         id: revparse2
         run: |
-             calculatedSha=$(git rev-parse --short ${{ github.sha }})
-             echo "COMMIT_SHORT_SHA=$calculatedSha" >> $GITHUB_ENV
+#             calculatedSha=$(git rev-parse --short ${{ github.sha }})
+#             echo "SHORT_SHA=$calculatedSha" >> $GITHUB_ENV
+             echo "SHORT_SHA=$(git rev-parse --short ${{ github.sha }})" >> $GITHUB_ENV
       - name: show revparse2
-        run: echo ${{ env.COMMIT_SHORT_SHA }}
+        run: echo ${{ env.SHORT_SHA }}
