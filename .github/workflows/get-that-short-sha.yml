@@ -9,6 +9,13 @@ jobs:
       matrix:
         container: ['ubuntu:20.04']
     steps:
+      - name: Install git 
+        run: |
+             apt-get install -y git
+             git --version
+             echo "Path is ... $PATH"
+             PATH=$PATH:$(which git)
+             echo "Path is ... $PATH"
       - name: Checkout Repository
         uses: actions/checkout@v4
       - name: Get the short SHA
