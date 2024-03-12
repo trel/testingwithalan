@@ -9,10 +9,17 @@ jobs:
       matrix:
         container: ['ubuntu:20.04']
     steps:
+      - name: show workspace
+        run: |
+             echo "[$GITHUB_WORKSPACE]"
+             ls -l $GITHUB_WORKSPACE
+      - name: get git
+        run: |
+             apt-get update
+             apt-get install -y git
+             which git
       - name: Checkout Repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 #      - name: Get the short SHA
 #        id: revparse1
 #        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
