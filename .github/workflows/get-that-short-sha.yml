@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 #      - name: Get the short SHA
 #        id: revparse1
 #        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
