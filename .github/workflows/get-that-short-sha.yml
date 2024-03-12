@@ -14,7 +14,8 @@ jobs:
              apt-get update
              apt-get install -y git
              echo "[${{ github.workspace }}]"
-             git config --global --add safe.directory ${{ github.workspace }}
+             echo "[$GITHUB_WORKSPACE]"
+             git config --global --add safe.directory $GITHUB_WORKSPACE
       - name: Checkout Repository
         uses: actions/checkout@v4
 #      - name: short sha via cut9
