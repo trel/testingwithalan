@@ -18,6 +18,7 @@ jobs:
              apt-get update
              apt-get install -y git
              which git
+             git config --global --add safe.directory /__w/testingwithalan/testingwithalan
       - name: Checkout Repository
         uses: actions/checkout@v4
       - name: short sha via cut9
