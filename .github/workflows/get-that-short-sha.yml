@@ -27,9 +27,6 @@ jobs:
 #        run:  echo ${{ steps.revparse1.outputs.sha_short }} 
       - name: rev-parse 2
         id: revparse2
-        run: |
-#             calculatedSha=$(git rev-parse --short ${{ github.sha }})
-#             echo "SHORT_SHA=$calculatedSha" >> $GITHUB_ENV
-             echo "SHORT_SHA=$(git rev-parse --short ${{ github.sha }})" >> $GITHUB_ENV
+        run: echo "SHORT_SHA=$(git rev-parse --short ${{ github.sha }})" >> $GITHUB_ENV
       - name: show revparse2
         run: echo ${{ env.SHORT_SHA }}
