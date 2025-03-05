@@ -7,12 +7,19 @@ assignees: ''
 
 ---
 
-**iRODS Version, OS and Version**
+### iRODS Version, OS and Version
 
-**What did you try to do?**
+### What did you try to do?
 
-**Expected behavior**
+### Expected behavior
 
-**Observed Behavior (including steps to reproduce, if applicable)**
+### Observed Behavior (including steps to reproduce, if applicable)
+<!--
+Example: steps to reproduce the behavior:
+1. In this environment...
+1. With this config...
+1. Run '...'
+1. See error...
+-->
 
-**iRODS Server Logs (if applicable)**
+### iRODS Server Logs (if applicable)
